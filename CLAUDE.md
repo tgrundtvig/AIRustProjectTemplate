@@ -2,11 +2,14 @@
 
 See [Project Overview](docs/project/overview.md)
 
+## Collaboration Rules
+
+@docs/guidelines/collaboration-guidelines.md
+
 ## Required Reading
 
 Always read before starting work:
 
-- [Collaboration Guidelines](docs/guidelines/collaboration-guidelines.md)
 - [Coding Guidelines](docs/guidelines/coding.md)
 
 ## Contextual Reading
