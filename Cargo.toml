@@ -1,25 +1,16 @@
-[package]
-name = "project-template"
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
 authors = ["Your Name <your.email@example.com>"]
-description = "Project description"
 license = "MIT OR Apache-2.0"
-readme = "README.md"
 
-[[bin]]
-name = "project-template"
-path = "src/main.rs"
-
-[dependencies]
-# Add dependencies here
-
-[dev-dependencies]
-# Add test dependencies here
-
-[lints.rust]
+[workspace.lints.rust]
 unsafe_code = "forbid"
 
-[lints.clippy]
+[workspace.lints.clippy]
 all = "warn"
 pedantic = "warn"

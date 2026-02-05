@@ -23,13 +23,16 @@ fi
 echo
 echo "Configuring project..."
 
-# Update Cargo.toml
-sed -i "s/^name = .*/name = \"${PROJECT_NAME}\"/" Cargo.toml
+# Update workspace Cargo.toml
 sed -i "s/^authors = .*/authors = [\"${AUTHOR_NAME} <${AUTHOR_EMAIL}>\"]/" Cargo.toml
-sed -i "s/^description = .*/description = \"${DESCRIPTION}\"/" Cargo.toml
 
-# Update binary name
-sed -i "s/name = \"project-template\"/name = \"${PROJECT_NAME}\"/" Cargo.toml
+# Update app crate Cargo.toml
+sed -i "s/^name = \"app\"/name = \"${PROJECT_NAME}\"/" crates/app/Cargo.toml
+sed -i "s/^description = .*/description = \"${DESCRIPTION}\"/" crates/app/Cargo.toml
+sed -i "s/name = \"app\"/name = \"${PROJECT_NAME}\"/" crates/app/Cargo.toml
+
+# Rename app directory to project name
+mv crates/app "crates/${PROJECT_NAME}"
 
 # Update project overview
 cat > docs/project/overview.md << EOF
@@ -50,15 +53,15 @@ Development
 ## Key Technologies
 
 - Rust (2024 edition)
-- Cargo
+- Cargo workspace
 EOF
 
 echo
 echo "=== Setup Complete ==="
 echo
 echo "Next steps:"
-echo "  1. Review Cargo.toml"
+echo "  1. Review Cargo.toml and crates/${PROJECT_NAME}/Cargo.toml"
 echo "  2. Update docs/project/overview.md with more details"
 echo "  3. Update docs/project/architecture.md"
-echo "  4. Start coding!"
+echo "  4. Start coding in crates/${PROJECT_NAME}/src/"
 echo

@@ -2,6 +2,21 @@
 
 Rust project template with AI-assisted development guidelines.
 
+## Project Structure
+
+```
+project/
+├── crates/                 # Rust crates (workspace members)
+│   └── app/                # Main application
+├── docs/
+│   ├── guidelines/         # Reusable development guidelines
+│   └── project/            # Project-specific documentation
+├── .claude/                # AI collaboration tooling
+├── .github/                # CI/CD workflows
+├── discussions/            # Brainstorm session logs
+└── Cargo.toml              # Workspace manifest
+```
+
 ## Getting Started
 
 ### Using as Template
@@ -10,18 +25,20 @@ Rust project template with AI-assisted development guidelines.
 2. Clone your new repository
 3. Run setup script: `./setup.sh`
 4. Fill in `docs/project/overview.md`
-5. Start coding
+5. Start coding in `crates/<project-name>/src/`
 
 ### Manual Setup
 
 1. Update `Cargo.toml`:
-   - `name`: project name
    - `authors`: your information
+
+2. Update `crates/app/Cargo.toml`:
+   - `name`: project name
    - `description`: project description
 
-2. Update `docs/project/overview.md` with project description
+3. Rename `crates/app/` to match your project name
 
-3. Delete this section from README and add project-specific content
+4. Update `docs/project/overview.md` with project description
 
 ## Documentation
 
@@ -54,6 +71,17 @@ cargo test
 cargo clippy
 cargo fmt -- --check
 ```
+
+## Adding Crates
+
+To add a new crate to the workspace:
+
+```bash
+mkdir -p crates/my-crate/src
+# Create crates/my-crate/Cargo.toml with workspace inheritance
+```
+
+The workspace uses `members = ["crates/*"]`, so new crates are auto-discovered.
 
 ## License
 

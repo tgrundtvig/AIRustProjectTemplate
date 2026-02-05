@@ -1,0 +1,20 @@
+[package]
+name = "app"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "Main application binary"
+license.workspace = true
+
+[[bin]]
+name = "app"
+path = "src/main.rs"
+
+[dependencies]
+# Add dependencies here
+
+[dev-dependencies]
+# Add test dependencies here
+
+[lints]
+workspace = true
