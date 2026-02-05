@@ -1,0 +1,35 @@
+# Rust/Cargo
+/target/
+# Uncomment below for binaries, keep commented for libraries
+# Cargo.lock
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Environment ###
+.env
+.env.local
+*.log
+
+### Docker ###
+docker-compose.override.yml
+
+### Generated ###
+*.profraw
+*.profdata
+
+### Editor backups ###
+*~
+\#*\#
